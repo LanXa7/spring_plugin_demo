@@ -1,4 +1,4 @@
-###
+### 手动实现的策略模式
 POST http://localhost:8080/pay
 Content-Type: application/json
 
@@ -6,4 +6,35 @@ Content-Type: application/json
   "payType": "ALI_PAY",
   "orderNo": "0"
 }
+
+### spring plugin实现策略模式
+POST http://localhost:8080/pay/plugin
+Content-Type: application/json
+
+{
+  "payType": "ALI_PAY",
+  "orderNo": "0"
+}
+
+### spring plugin实现责任链模式 正确请求
+POST http://localhost:8080/article
+Content-Type: application/json
+
+{
+  "title": "测试",
+  "content": "我是蔡徐坤",
+  "tags": ["明星"]
+}
+
+### spring plugin实现责任链模式 错误请求
+POST http://localhost:8080/article
+Content-Type: application/json
+
+{
+  "title": "测试",
+  "content": "我是蔡徐坤，我会唱跳",
+  "tags": ["明星"]
+}
+
+
 

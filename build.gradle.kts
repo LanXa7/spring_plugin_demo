@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.plugin:spring-plugin-core:4.0.0-M1")
     implementation("io.github.oshai:kotlin-logging:7.0.7")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

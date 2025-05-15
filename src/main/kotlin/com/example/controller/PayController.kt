@@ -15,4 +15,8 @@ class PayController(
     @PostMapping
     fun pay(@RequestBody payRequest: PayRequest): String =
         payService.pay(payRequest)
+
+    @PostMapping("/plugin")
+    fun pluginPay(@RequestBody payRequest: PayRequest): String =
+        payService.processPay(payRequest)
 }
