@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan
 @ComponentScan(
     nameGenerator = SpELBeanNameGenerator::class
 )
-class StrategyDemoApplication
+class SpringPluginDemoApplication
 
 fun main(args: Array<String>) {
-    runApplication<StrategyDemoApplication>(*args)
+    runApplication<SpringPluginDemoApplication>(*args)
 }
