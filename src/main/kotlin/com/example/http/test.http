@@ -1,0 +1,9 @@
+###
+POST http://localhost:8080/pay
+Content-Type: application/json
+
+{
+  "payType": "ALI_PAY",
+  "orderNo": "0"
+}
+
