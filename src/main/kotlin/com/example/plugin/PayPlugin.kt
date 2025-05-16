@@ -1,8 +1,8 @@
 package com.example.plugin
 
 import com.example.enums.PayType
-import com.example.ext.log
 import com.example.http.request.PayRequest
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.core.annotation.Order
 import org.springframework.plugin.core.Plugin
 import org.springframework.stereotype.Component
@@ -25,6 +25,10 @@ class AliPayPlugin : PayPlugin {
         log.info { "result: $result" }
         return result
     }
+
+    companion object{
+        private val log = KotlinLogging.logger {}
+    }
 }
 
 @Component
@@ -38,6 +42,10 @@ class WechatPayPlugin : PayPlugin {
         val result = "微信支付: " + req.orderNo
         log.info { "result: $result" }
         return result
+    }
+
+    companion object{
+        private val log = KotlinLogging.logger {}
     }
 }
 
@@ -53,6 +61,10 @@ class BankCardPlugin : PayPlugin {
         log.info { "result: $result" }
         return result
     }
+
+    companion object{
+        private val log = KotlinLogging.logger {}
+    }
 }
 
 @Component
@@ -67,6 +79,10 @@ class CreditCardPlugin : PayPlugin {
         log.info { "result: $result" }
         return result
     }
+
+    companion object{
+        private val log = KotlinLogging.logger {}
+    }
 }
 
 @Component
@@ -80,5 +96,9 @@ class OtherPayPlugin : PayPlugin {
         val result = "其它支付: " + req.orderNo
         log.info { "result: $result" }
         return result
+    }
+
+    companion object{
+        private val log = KotlinLogging.logger {}
     }
 }

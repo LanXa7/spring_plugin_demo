@@ -1,7 +1,7 @@
 package com.example.pay
 
-import com.example.ext.log
 import com.example.http.request.PayRequest
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.stereotype.Component
 
 interface PayStrategy<T, R> {
@@ -15,6 +15,9 @@ class AliPayStrategy : PayStrategy<PayRequest, String> {
         log.info { "result: $result" }
         return result
     }
+    companion object{
+        private val log = KotlinLogging.logger {}
+    }
 }
 
 @Component("#{T(com.example.enums.PayType).WECHAT_PAY.type}")
@@ -23,6 +26,9 @@ class WechatStrategy : PayStrategy<PayRequest, String> {
         val result = "微信支付: " + req.orderNo
         log.info { "result: $result" }
         return result
+    }
+    companion object{
+        private val log = KotlinLogging.logger {}
     }
 }
 
@@ -33,6 +39,9 @@ class BankCardStrategy : PayStrategy<PayRequest, String> {
         log.info { "result: $result" }
         return result
     }
+    companion object{
+        private val log = KotlinLogging.logger {}
+    }
 }
 
 @Component("#{T(com.example.enums.PayType).CREDIT_CARD_PAY.type}")
@@ -42,6 +51,9 @@ class CreditCardStrategy : PayStrategy<PayRequest, String> {
         log.info { "result: $result" }
         return result
     }
+    companion object{
+        private val log = KotlinLogging.logger {}
+    }
 }
 
 @Component("other")
@@ -50,5 +62,8 @@ class OtherPayStrategy : PayStrategy<PayRequest, String> {
         val result = "其它支付: " + req.orderNo
         log.info { "result: $result" }
         return result
+    }
+    companion object{
+        private val log = KotlinLogging.logger {}
     }
 }
